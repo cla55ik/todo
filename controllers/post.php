@@ -9,7 +9,15 @@ switch ($post['type']) {
         echo json_encode($res);
         break;
     case 'done':
-        $res = updateStatus($post);
+        $res = todoDone($post);
+        echo json_encode($res);
+        break;
+    case 'rework':
+        $res = todoRework($post);
+        echo json_encode($res);
+        break;
+    case 'delete':
+        $res = todoDelete($post);
         echo json_encode($res);
         break;
     default:
@@ -42,7 +50,7 @@ function createTodo($array){
 
 }
 
-function updateStatus($array){
+function todoDone($array){
     $crud = new Crud();
     $todo = $crud->getTodoById($array['id']);
 
@@ -53,6 +61,32 @@ function updateStatus($array){
     $res=[
         'status' => 'ok',
         'message'=> 'update Done'
+    ];
+    return $res;
+}
+
+function todoRework($array){
+    $crud = new Crud();
+    $todo = $crud->getTodoById($array['id']);
+
+    $todo['status'] = 1;
+
+    $crud->updateTodo($todo);
+
+    $res=[
+        'status' => 'ok',
+        'message'=> 'update Done'
+    ];
+    return $res;
+}
+
+function todoDelete($array){
+    $crud = new Crud();
+    $todo = $crud->deleteTodo($array['id']);
+
+    $res=[
+        'status' => 'ok',
+        'message'=> 'Delete done'
     ];
     return $res;
 }

@@ -32,6 +32,7 @@
 }
 
 *{
+    font-family: 'Montserrat';
     margin: 0;
     padding: 0;
 }
@@ -99,9 +100,18 @@ button.btn{
     font-size: 18px;
 }
 
+button.btn:hover{
+    cursor: pointer;
+    background-color: #1978FE;
+}
+
+
 .btn.button__add{
     background-color: #1978FE;
     border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Montserrat';
 }
 .btn.button__add:hover{
     cursor: pointer;
@@ -129,10 +139,22 @@ button.btn{
 }
 
 .todo__item-action{
-    width: 10%;
+    width: 5%;
     text-align: center;
 }
-
+.todo__item-action:hover{
+    cursor: pointer;
+    color: #FFF;
+}
+.todo__item-action-delete{
+    width: 5%;
+    text-align: center;
+    color: #1978FE;
+}
+.todo__item-action-delete:hover{
+    cursor: pointer;
+    color: #FFF;
+}
 .todo__item-title{
     font-weight: bold;
     margin-bottom: 10px;
@@ -168,8 +190,8 @@ button.btn{
 
 .todo__list-done .todo__item{
     align-items: center;
-    background-color:#D5D9E0;
-    color: #5F6D89;
+    background-color:#323c4d;
+    color: #fff;
 }
 
 .todo__list-done .todo__item-action{
@@ -180,5 +202,56 @@ button.btn{
 @media screen and (max-width:475px) {
     .only_desctop {
         display: none;
+    }
+
+    main{
+        padding: 0 25px;
+    }
+
+    .todo__list{
+        margin: 40px 0;
+    }
+
+    .todo__title{
+        display: block;
+    }
+
+    .todo__item{
+        width: auto;
+    }
+
+    .todo__item-text, .todo__item-description{
+        width: 100%;
+    }
+
+    .todo__item-category{
+        width: 70%;
+        text-align: start;
+        margin-top: 20px;
+    }
+    span.todo__item-category-label{
+        font-weight: 300;
+        font-size: 12px;
+    }
+
+    .todo__item-action{
+        width: 15%;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .todo__item-action-delete{
+        width: 15%;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    form#todo_create_form{
+        width: auto;
+    }
+
+    .btn.button__add{
+        margin-top: 10px;
     }
 }

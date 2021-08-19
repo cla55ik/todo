@@ -67,3 +67,41 @@ function todoDone(id){
             console.log(error);
         })
 }
+
+function reWork(id){
+    formData = new FormData();
+    formData.append('type', 'rework');
+    formData.append('id', id);
+
+    ajaxSend(formData)
+        .then((response)=>{
+            res = JSON.parse(response);
+
+            if (res.status == 'ok') {
+                console.log('reWork OK');
+               window.location.reload();
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+}
+
+function deleteTodo(id){
+    formData = new FormData();
+    formData.append('type', 'delete');
+    formData.append('id', id);
+
+    ajaxSend(formData)
+        .then((response)=>{
+            res = JSON.parse(response);
+
+            if (res.status == 'ok') {
+                console.log('reWork OK');
+               window.location.reload();
+            }
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+}

@@ -87,8 +87,11 @@ foreach ($category as $cat) {
                         <?=$cat_array[$todo['category']]?>
                     </span>
                 </div>
-                <div class="todo__item-action" >
+                <div class="todo__item-action" onclick="reWork(<?=$todo['id'];?>)">
                     &#10004;
+                </div>
+                <div class="todo__item-action-delete" onclick="deleteTodo(<?=$todo['id'];?>)">
+                    &#10006;
                 </div>
                 
             </div>
