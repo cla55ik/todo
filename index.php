@@ -29,9 +29,9 @@ foreach ($category as $cat) {
     <main class="todo">
         <div class="todo__title">
             <h1>Список задач</h1>
+            <button class="btn button__add" id="view_create_form">+Добавить</button>
         </div>
         <div class="todo__create">
-            <button id="view_create_form">Добавить</button>
             <form id="todo_create_form" class="hidden todo_create_form">
                 <input type="text" name="name" placeholder="Название">
                 <input type="text" name="description" placeholder="Описание">
@@ -46,28 +46,54 @@ foreach ($category as $cat) {
             </form>
         </div>
         <div class="todo__list">
-            <table class="todo__table">
-                <tr class="todo__table-th">
-                    <td>ID</td>
-                    <td>Название</td>
-                    <td class="only_desctop">Описание</td>
-                    <td>Статус</td>
-                    <td class="only_desctop">Категория</td>
-                    <td></td>
-                </tr>
-                <?php foreach($all_todo as $todo):?>
-                <?php if ($todo['status'] == 1) :?>
-                <tr class="todo__table-tr">
-                    <td><?=$todo['id']?></td>
-                    <td><?=$todo['name']?></td>
-                    <td class="only_desctop"><?=$todo['description']?></td>
-                    <td><?=$todo['status']?></td>
-                    <td class="only_desctop"><?=$cat_array[$todo['category']]?></td>
-                    <td><button id='todo_done' onclick="todoDone(<?=$todo['id']?>)">Готово</button></td>
-                </tr>
-                <?php endif;?>
-                <?php endforeach;?>
-            </table>
+        <?php foreach($all_todo as $todo):?>
+            <?php if ($todo['status'] == 1) :?>
+            <div class="todo__item">
+                <div class="todo__item-text">
+                    <div class="todo__item-title">
+                        <?=$todo['name']?>
+                    </div>
+                    <div class="todo__item-description">
+                        <?=$todo['description']?>
+                    </div>
+                </div>
+                <div class="todo__item-category">
+                    <span class="todo__item-category-label">
+                        <?=$cat_array[$todo['category']]?>
+                    </span>
+                </div>
+                <div class="todo__item-action" onclick="todoDone('<?=$todo['id'];?>')">
+                    &#10004;
+                </div>
+                
+            </div>
+            <?php endif;?>
+        <?php endforeach;?>
+        </div>
+        <div class="todo__list-done">
+        <?php foreach($all_todo as $todo):?>
+            <?php if ($todo['status'] != 1) :?>
+            <div class="todo__item">
+                <div class="todo__item-text">
+                    <div class="todo__item-title">
+                        <?=$todo['name']?>
+                    </div>
+                    <div class="todo__item-description">
+                        <?=$todo['description']?>
+                    </div>
+                </div>
+                <div class="todo__item-category">
+                    <span class="todo__item-category-label">
+                        <?=$cat_array[$todo['category']]?>
+                    </span>
+                </div>
+                <div class="todo__item-action" >
+                    &#10004;
+                </div>
+                
+            </div>
+            <?php endif;?>
+        <?php endforeach;?>
         </div>
 
     </main>

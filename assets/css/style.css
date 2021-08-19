@@ -38,6 +38,8 @@
 
 body{
     font-family: 'Montserrat';
+    color: #475677;
+    background-color: #DBE8FE;
 }
 
 
@@ -50,19 +52,31 @@ main{
     display: none;
 }
 
+.todo__title{
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+}
 
+h1 {
+    margin-right: 30px;
+}
 form#todo_create_form{
-    padding: 35px;
-    background-color:cornsilk;
+    padding: 25px;
+    background-color:#FFF;
     margin: 20px 0px;
-    width: fit-content;
-    
+    border-radius: 30px;
+    width: 60vw;
+    border: 1px dashed #475677;   
 }
 
 input[type="text"]{
     padding: 5px;
+    border-radius: 10px;
     border: 1px solid dimgrey;
     font-size: 18px;
+    width: 70%;
+    margin-bottom: 20px;
 }
 
 .todo_create_form p{
@@ -73,14 +87,93 @@ select{
     padding: 5px;
     border: 1px solid dimgrey;
     font-size: 18px;
+    border-radius: 10px;
 }
 
 button.btn{
     padding: 5px 20px;
     border: none;
-    background-color:darkolivegreen;
+    background-color: #00113E;
+    border-radius: 15px;
     color: white;
     font-size: 18px;
+}
+
+.btn.button__add{
+    background-color: #1978FE;
+    border-radius: 15px;
+}
+.btn.button__add:hover{
+    cursor: pointer;
+    background-color: #00113E;
+}
+
+
+.todo__item{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 30px;
+    margin: 20px 0;
+    padding: 25px;
+    width: 60vw;
+}
+
+.todo__item-text{
+    width: 65%;
+}
+.todo__item-category{
+    width: 25%;
+}
+
+.todo__item-action{
+    width: 10%;
+    text-align: center;
+}
+
+.todo__item-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.todo__item-description{
+    font-size: 14px;
+    width: 70%;
+}
+.todo__item-category{
+    text-align: center;
+}
+.todo__item-category-label{
+    padding: 7px 20px;
+    background-color: #3784FE;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.todo__item-action{
+    color: #5F6D89;
+
+}
+
+.todo__item-action:hover{
+    cursor: pointer;
+    color: #3784FE;
+}
+
+/* TODO done */
+
+.todo__list-done .todo__item{
+    align-items: center;
+    background-color:#D5D9E0;
+    color: #5F6D89;
+}
+
+.todo__list-done .todo__item-action{
+    color: #1978FE;
 }
 
 
