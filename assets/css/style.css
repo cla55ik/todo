@@ -201,6 +201,14 @@ button.btn:hover{
     color: #1978FE;
 }
 
+.todo__item-category-label:hover{
+    cursor: pointer;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(69,132,255, 1);
+    -moz-box-shadow:    0px 0px 5px 0px rgba(69,132,255, 1);
+    box-shadow:         0px 0px 5px 0px rgba(69,132,255, 1);
+    color: #00113E;
+}
+
 
 @media screen and (max-width:475px) {
     .only_desctop {
