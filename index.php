@@ -48,7 +48,7 @@ foreach ($category as $cat) {
         <div class="todo__list">
         <?php foreach($all_todo as $todo):?>
             <?php if ($todo['status'] == 1) :?>
-            <div class="todo__item">
+            <div class="todo__item cat_id_<?=$todo['category'];?>">
                 <div class="todo__item-text">
                     <div class="todo__item-title">
                         <?=$todo['name']?>
@@ -58,7 +58,7 @@ foreach ($category as $cat) {
                     </div>
                 </div>
                 <div class="todo__item-category">
-                    <span class="todo__item-category-label">
+                    <span class="todo__item-category-label" onclick="filter('cat_id_<?=$todo['category'];?>')">
                         <?=$cat_array[$todo['category']]?>
                     </span>
                 </div>

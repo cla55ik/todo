@@ -42,6 +42,15 @@ class Crud{
         return $res;
     }
 
+    public function getAllTodoInCategory($category)
+    {
+        $query = "SELECT * FROM `todo` WHERE category = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute([$category]);
+        $res = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
     public function deleteTodo($id){
         $query = "DELETE FROM `todo` WHERE id = ?";
         $stmt = $this->conn->prepare($query);

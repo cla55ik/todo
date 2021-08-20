@@ -105,3 +105,43 @@ function deleteTodo(id){
             console.log(error);
         })
 }
+
+function filter(className){
+    let elements = document.getElementsByClassName('cat_id_2');
+    switch (className) {
+        case 'cat_id_1':
+            elements = document.getElementsByClassName('cat_id_2');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            elements = document.getElementsByClassName('cat_id_3');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            break;
+        case 'cat_id_2':
+            elements = document.getElementsByClassName('cat_id_1');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            elements = document.getElementsByClassName('cat_id_3');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            break;
+        case 'cat_id_3':
+            elements = document.getElementsByClassName('cat_id_1');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            elements = document.getElementsByClassName('cat_id_2');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'none';
+            }
+            break;
+        default:
+            break;
+    }
+
+    
+}

@@ -1,7 +1,8 @@
 <?php 
 
 require_once($_SERVER['DOCUMENT_ROOT'] . "/controllers/crud.php");
-$post = $_POST;
+$post_input = $_POST;
+$post = sanitizeArray($post_input);
 
 switch ($post['type']) {
     case 'create':
@@ -20,6 +21,10 @@ switch ($post['type']) {
         $res = todoDelete($post);
         echo json_encode($res);
         break;
+    case 'category':
+        $res = todoInCategory($post);
+        echo json_encode($res);
+        break;
     default:
         $res = [
             'status'=>'error',
@@ -31,6 +36,7 @@ switch ($post['type']) {
 
 
 function createTodo($array){
+
     if($array['name'] == ''){
         $res = [
             'status' => 'error',
@@ -89,4 +95,27 @@ function todoDelete($array){
         'message'=> 'Delete done'
     ];
     return $res;
+}
+
+function todoInCategory($array){
+    $crud = new Crud();
+    $category = $array['cat_id'];
+    $todo = $crud->getAllTodoInCategory($category);
+
+    $res=[
+        'status' => 'ok',
+        'message'=> 'Delete done'
+    ];
+    return $res;
+}
+
+function sanitizeArray($array){
+    foreach ($array as $key=>$value){
+        $text = strip_tags($value);
+        $text = htmlspecialchars($text);
+        // $text = mysql_escape_string($text);
+        $text = trim($text);
+        $res_array[$key] = $text;
+    }
+    return $res_array;
 }
