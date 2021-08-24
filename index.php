@@ -23,6 +23,7 @@ foreach ($category as $cat) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
     <title>Список задач</title>
 </head>
 <body>
@@ -44,6 +45,12 @@ foreach ($category as $cat) {
                 </select>
                 <button class="btn" type="submit">Создать</button>
             </form>
+        </div>
+        <div class="todo__filter">
+            <span>Фильтры: </span>
+            <?php foreach($category as $cat):?>
+                <span class="todo__filter-label" id = "filter_cat_id_<?=$cat['id'];?>" onclick="filter('cat_id_<?=$cat['id'];?>')"><?=$cat['name'] ?></span>
+            <?php endforeach;?>
         </div>
         <div class="todo__list">
         <?php foreach($all_todo as $todo):?>

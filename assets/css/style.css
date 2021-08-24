@@ -208,6 +208,32 @@ button.btn:hover{
     box-shadow:         0px 0px 5px 0px rgba(69,132,255, 1);
     color: #00113E;
 }
+.todo__filter{
+    margin-top: 10px;
+}
+
+.todo__filter-label{
+    padding: 5px 15px;
+    border: 1px solid #323c4d;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.todo__filter-label:hover{
+    background-color: rgba(69,132,255, 0.7);
+    color: #FFF;
+    border-color: rgba(69,132,255, 0.7);
+}
+
+.todo__item-category-label-active{
+    padding: 5px 15px;
+    border: 1px solid #3784FE;
+    background-color: #3784FE;
+    color: #FFF;
+    border-radius: 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
 
 
 @media screen and (max-width:475px) {

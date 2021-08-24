@@ -2,6 +2,9 @@ window.onload = function(){
     var create = document.getElementById('todo_create_form');
     let showCreateForm = document.getElementById('view_create_form');
     
+    
+    
+    
     create.addEventListener('submit', function(event){
         event.preventDefault();
         formData = new FormData(create);
@@ -31,6 +34,8 @@ window.onload = function(){
 
 
 }
+
+
 
 
 const ajaxSend = async (formData) => {
@@ -108,6 +113,14 @@ function deleteTodo(id){
 
 function filter(className){
     let elements = document.getElementsByClassName('cat_id_2');
+    let filterContainer = document.querySelector('.todo__filter');
+    let currFilter = 'filter_' + className;
+    let filterLabel = document.getElementById(currFilter);
+
+    filterLabel.classList.remove('todo__item-category-label');
+    filterLabel.classList.add('todo__item-category-label-active');
+    
+    // filterLabel.classList.add('todo__filter-label');
     switch (className) {
         case 'cat_id_1':
             elements = document.getElementsByClassName('cat_id_2');
@@ -117,7 +130,14 @@ function filter(className){
             elements = document.getElementsByClassName('cat_id_3');
             for (let i=0; i < elements.length; i++){
                 elements[i].style.display = 'none';
-            }
+            };
+            elements = document.getElementsByClassName('cat_id_1');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'flex';
+            };
+            console.log(filterContainer);
+            filterLabel.innerHTML = 'PHP';
+            filterContainer.append(filterLabel);
             break;
         case 'cat_id_2':
             elements = document.getElementsByClassName('cat_id_1');
@@ -128,6 +148,12 @@ function filter(className){
             for (let i=0; i < elements.length; i++){
                 elements[i].style.display = 'none';
             }
+            elements = document.getElementsByClassName('cat_id_2');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'flex';
+            };
+            filterLabel.innerHTML = 'JavaScript';
+            filterContainer.append(filterLabel);
             break;
         case 'cat_id_3':
             elements = document.getElementsByClassName('cat_id_1');
@@ -138,6 +164,12 @@ function filter(className){
             for (let i=0; i < elements.length; i++){
                 elements[i].style.display = 'none';
             }
+            elements = document.getElementsByClassName('cat_id_3');
+            for (let i=0; i < elements.length; i++){
+                elements[i].style.display = 'flex';
+            };
+            filterLabel.innerHTML = 'Other';
+            filterContainer.append(filterLabel);
             break;
         default:
             break;
